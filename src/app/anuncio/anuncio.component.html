@@ -1,60 +1,59 @@
 <br>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Informação</th>
-            <th scope="col">Data Inicio</th>
-            <th scope="col">Data Final</th>
-        </tr>
-    </thead>
+<div class="card">
+  <table class="table table-striped">
     <tbody>
-        <tr>
-        <tr *ngFor="let anuncio of anuncio">
-            <th scope="row"> {{anuncio.id}}</th>
-            <td>{{anuncio.name}}</td>
-            <td>{{anuncio.informacao}}</td>
-            <td>{{anuncio.data_ini}}</td>
-            <td>{{anuncio.data_fin}}</td>
-        </tr>
+      <tr>
+      <tr *ngFor="let anuncio of anuncio">
+        <div class="card" style="width: 18rem;">
+          <img src="{{anuncio.img}}" alt="" width="80px" height="80px">
+          <div class="card-body">
+            <h5 class="card-title">
+              <td>{{anuncio.name}}</td>
+            </h5>
+            <P>Começa: <td>{{anuncio.data_ini}}</td>
+            </P>
+            <P>Termina: <td>{{anuncio.data_fin}}</td>
+            </P>
+          </div>
+        </div>
+      </tr>
     </tbody>
-</table>
+  </table>
+</div>
 
 <div class="row">
-    <div class="col-3 m-auto">
-        <form [formGroup]="formGroupClient">
-            <div class="mb-3">
-                <label for="name" class="form-label">Nome: </label>
-                <input type="text" formControlName="name" class="form-control" id="nome" placeholder="Nome">
-            </div>
+  <div class="col-3 m-auto">
+    <form [formGroup]="formGroupClient">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nome: </label>
+        <input type="text" formControlName="name" class="form-control" id="nome" placeholder="Nome">
+      </div>
+      <div class="mb-3">
+        <label for="img" class="form-label">Imagem: </label>
+        <input type="text" formControlName="img" class="form-control" id="img" placeholder="URL da Imagem">
+      </div>
 
-            <div class="mb-3">
-                <label for="name" class="form-label">Informação: </label>
-                <input type="text" formControlName="informacao" class="form-control" id="informacao" placeholder="Informação">
-            </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Informação: </label>
+        <input type="text" formControlName="name" class="form-control" id="informacao" placeholder="Informação">
+      </div>
 
-            <div class="mb-3">
-                <label for="name" class="form-label">Data Inicial: </label>
-                <input type="text" formControlName="data_ini" class="form-control" id="data_ini" placeholder="Data Inicial">
-            </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Data Inicial: </label>
+        <input type="text" formControlName="data_ini" class="form-control" id="data_ini" placeholder="Data Inicial">
+      </div>
 
-            <div class="mb-3">
-                <label for="name" class="form-label">Data Inicial: </label>
-                <input type="text" formControlName="data_ini" class="form-control" id="data_ini" placeholder="Data Inicial">
-            </div>
-
-            <div class="mb-3">
-                <label for="name" class="form-label">Data Final: </label>
-                <input type="text" formControlName="data_fin" class="form-control" id="data_fin" placeholder="Data Final">
-            </div>
-
+      <div class="mb-3">
+        <label for="name" class="form-label">Data Final: </label>
+        <input type="text" formControlName="data_fin" class="form-control" id="data_fin" placeholder="Data Final">
+      </div>
 
 
 
-            <div class="mb-3 d-flex justify-content-end">
-                <!--<button class="btn btn-primary" (click)="salvar()">Salvar</button>-->
-            </div>
-        </form>
-    </div>
+
+      <div class="mb-3 d-flex justify-content-end">
+        <button class="btn btn-primary" (click)="salvar()">Salvar</button>
+      </div>
+    </form>
+  </div>
 </div>

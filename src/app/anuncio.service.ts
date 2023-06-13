@@ -9,11 +9,16 @@ import { Anuncio } from './anuncio/anuncio';
 })
 export class AnuncioService {
 
+
+   url = "http://localhost:3000/anuncio";
+
   constructor(private http: HttpClient) { }
 
 
-  getProduto(): Observable<Anuncio[]> {
-      let url = "http://localhost:3000/anuncio";
-      return this.http.get<Anuncio[]>(url);
+  getAnuncio(): Observable<Anuncio[]> {
+      return this.http.get<Anuncio[]>(this.url);
+  }
+      salvar(Anuncio: Anuncio): Observable<Anuncio> {
+        return this.http.post<Anuncio>(this.url, Anuncio);
   }
 }

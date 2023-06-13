@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { AnuncioService } from '../anuncio.service';
+import { Anuncio } from './anuncio';
 
 
 @Component({
@@ -9,22 +11,42 @@ import { AnuncioService } from '../anuncio.service';
 })
 export class AnuncioComponent implements OnInit {
 
-anuncio: Anuncio[] = [];
-formGroupClient: FormGroup<any>;
+  anuncio: Anuncio[] = [];
+  formGroupClient: FormGroup;
 
+  constructor(private anuncioService: AnuncioService,
+    private formBuilder: FormBuilder
+  ) {
+    this.formGroupClient = formBuilder.group({
+      id: [''],
+      img: [''],
+      name: [''],
+      informacao: [''],
+      data_ini: [''],
+      data_fin: [''],
 
-constructor(private anuncioService: AnuncioService){}
-ngOnInit(): void {
-  this.loadAnuncio();
+    });
+  }
+  ngOnInit(): void {
+    this.loadAnuncio();
+  }
+  loadAnuncio() {
+    this.anuncioService.getAnuncio().subscribe(
+      {
+        next: data => this.anuncio = data,
+        error: msg => console.log("Erro ao chamar o endpont " + msg )
+      }
+    )
+  }
+
+  salvar() {
+    this.anuncioService.salvar(this.formGroupClient.value).subscribe(
+      {
+        next: data => {
+          this.anuncio.push(data);
+          this.formGroupClient.reset();
+        }
+      }
+    )
+  }
 }
-
-loadAnuncio() {
-   this.anuncioService.getAnuncio().subscribe(
-     {
-       next : data => this.anuncio = data,
-     }
-   );
-}
-
-}
-

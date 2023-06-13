@@ -2,10 +2,19 @@
   "anuncio": [
     {
       "id": 1,
+      "img": "https://m.media-amazon.com/images/I/41CmjIZgkPL._AC_SX569_.jpg",
       "name": "Promoção Relampago",
       "informacao": "Vendas de Cursos",
       "data_ini": "13/06/2023",
       "data_fin": "20/06/2023"
+    },
+    {
+      "id": 2,
+      "img": "https://m.media-amazon.com/images/I/51jdZi2u2BL._AC_SX569_.jpg",
+      "name": "Blusa que protege da chuva ",
+      "informacao": "",
+      "data_ini": "13/06/2023",
+      "data_fin": "22/06/2023"
     }
   ]
 }
