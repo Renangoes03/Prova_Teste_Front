@@ -1,0 +1,11 @@
+{
+  "anuncio": [
+    {
+      "id": 1,
+      "name": "Promoção Relampago",
+      "informacao": "Vendas de Cursos",
+      "data_ini": "13/06/2023",
+      "data_fin": "20/06/2023"
+    }
+  ]
+}
